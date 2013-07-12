@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: recipes
+# Table name: ingredients
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,10 +8,10 @@
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-class RecipeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+one:
+  name: MyString
+
+two:
+  name: MyString

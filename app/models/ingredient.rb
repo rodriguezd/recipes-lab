@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: recipes
+# Table name: ingredients
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,10 +8,10 @@
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
+class Ingredient < ActiveRecord::Base
+  attr_accessible :name
 
-class RecipeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  has_many :recipe_ingredients, :dependent => :destroy
+  has_many :recipes, :through => :recipe_ingredients
+
 end

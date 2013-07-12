@@ -1,1 +1,9 @@
 <!-- A view that shows you all the ingredients in a recipe. -->
+<h1><%= @recipe.name.capitalize %></h1>
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li><%= link_to ingredient.name.capitalize, ingredient %><%= link_to 'Delete', delete_association(@recipe.id, ingredient.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+<% end %>
+</ul>
+<p><%= link_to 'Recipes List', recipes_path %> </p>
+<p><%= link_to 'Ingredients List', ingredients_path %> </p>

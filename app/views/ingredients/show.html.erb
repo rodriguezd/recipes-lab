@@ -1,6 +1,10 @@
-<h1><%= @ingredient.name %></h1>
+<h1><%= @ingredient.name.capitalize %></h1>
 
 Used in:
 <ul>
-  <li>Recipe Name</li> <!-- This should link to the recipe show page -->
+  <% @ingredient.recipes.uniq.each do |recipe| %>
+  <li><%= link_to recipe.name.capitalize, recipe %></li> <!-- This should link to the recipe show page -->
+  <% end %>
 </ul>
+<p><%= link_to 'Ingredients List', ingredients_path %> </p>
+<p><%= link_to 'Recipes List', recipes_path %> </p>

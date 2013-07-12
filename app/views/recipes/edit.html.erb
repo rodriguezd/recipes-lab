@@ -1,0 +1,25 @@
+<%= form_tag recipe_path, :method => 'PUT' do %>
+  <p>
+    <%= label_tag 'name', 'Name: ' %>
+    <%= text_field_tag 'name', @recipe.name %>
+  </p>
+
+  <p>
+    <label>Ingredients</label>
+    <ul>
+      <% 5.times do %>
+      <li><%#= select_tag 'ingredient_ids[]', options_for_select(@ingredients.map{|ingredient| [ingredient.name, ingredient.id]}), :prompt => 'Ingredient' %> </li>
+      <% end %>
+    </ul>
+  </p>
+  <p>
+    <ul>
+      <% 5.times do %>
+      <li><%#= label_tag 'ingredient_names[]', '' %>
+    <%#= text_field_tag 'ingredient_names[]' %></li>
+      <% end %>
+    </ul>
+  </p>
+
+  <p><input type="submit" /></p>
+  <% end %>

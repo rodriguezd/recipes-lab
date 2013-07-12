@@ -1,5 +1,11 @@
 RecipesLab::Application.routes.draw do
+
+  delete '/recipe_ingredients/:id' => 'recipe_ingredients#destroy', :as => :recipe_ingredient
+
   resources :recipes
+  resources :ingredients
+
+  root :to => 'recipes#index'
 
 
   # The priority is based upon order of creation:

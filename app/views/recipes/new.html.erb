@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
 Your goal is to redo this form with Rails helpers and make it work by building out the correct models.
 
@@ -12,22 +12,28 @@ If you get clever, you can have 1 text box behave both ways, capable of adding a
 
 -->
 
-<form>
+<%= form_tag '/recipes', :method => 'POST' do %>
   <p>
-    <label>Recipe Name</label>
-    <input type="text">
+    <%= label_tag 'name', 'Name: ' %>
+    <%= text_field_tag 'name' %>
   </p>
 
   <p>
     <label>Ingredients</label>
     <ul>
-      <li><input></li>
-      <li><input></li>
-      <li><input></li>
-      <li><input></li>
-      <li><input></li>
+      <% 5.times do %>
+      <li><%= select_tag 'ingredient_ids[]', options_for_select(@ingredients.map{|ingredient| [ingredient.name, ingredient.id]}), :prompt => 'Ingredient' %> </li>
+      <% end %>
+    </ul>
+  </p>
+  <p>
+    <ul>
+      <% 5.times do %>
+      <li><%= label_tag 'ingredient_names[]', '' %>
+    <%= text_field_tag 'ingredient_names[]' %></li>
+      <% end %>
     </ul>
   </p>
 
   <p><input type="submit" /></p>
-</form>
+  <% end %>
